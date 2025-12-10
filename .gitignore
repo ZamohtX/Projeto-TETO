@@ -1,0 +1,37 @@
+# --- DEPENDÊNCIAS (Para todas as pastas) ---
+node_modules/
+
+# --- BUILD & COMPILAÇÃO ---
+dist/
+build/
+coverage/
+
+# --- AMBIENTE & SEGREDOS (CRÍTICO) ---
+.env
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# --- LOGS ---
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- IDEs & SISTEMA ---
+.DS_Store
+.vscode/
+.idea/
+*.sublime-workspace
+
+# --- NESTJS ESPECÍFICO ---
+/generated/prisma
+
+# --- EXPO / REACT NATIVE ESPECÍFICO ---
+.expo/
+*.jks
+*.keystore
+*.pem
+web-build/
