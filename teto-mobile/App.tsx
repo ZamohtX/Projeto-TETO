@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator, Alert, SafeAreaView } from 'react-native';
 import api from './src/services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import CreateHouse from './src/screens/CreateHouse';
+import Dashboard from './src/screens/Dashboard';
+
 
 export default function App() {
   const [email, setEmail] = useState('');
@@ -47,19 +50,14 @@ export default function App() {
     AsyncStorage.removeItem('@teto_token');
   }
 
-  // --- TELA DE "DENTRO" DO APP (PÓS LOGIN) ---
+// --- TELA DE "DENTRO" DO APP (PÓS LOGIN) ---
   if (token) {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Bem-vindo ao Teto! 🏠</Text>
-        <Text style={styles.subtitle}>Você está autenticado.</Text>
-        
-        <TouchableOpacity style={styles.buttonRed} onPress={handleLogout}>
-          <Text style={styles.buttonText}>Sair</Text>
-        </TouchableOpacity>
-      </View>
+      // Agora o Dashboard assume o controle total da tela
+      <Dashboard onLogout={handleLogout} />
     );
   }
+
 
   // --- TELA DE LOGIN ---
   return (
