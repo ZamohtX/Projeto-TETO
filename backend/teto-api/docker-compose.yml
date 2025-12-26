@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: teto_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 34321204
+      POSTGRES_DB: teto_db
+    volumes:
+    - postgres_data:/var/lib/postgresql/data
+    networks:
+    - teto_network
+  
+volumes:
+  postgres_data:
+
+networks:
+  teto_network:
